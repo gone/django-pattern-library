@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "django-pattern-library"
-version = "1.0.0"
+version = "1.2.0"
 description = "A module for Django that allows to build pattern libraries for your projects."
 authors = [
     "Ben Dickinson <ben.dickinson@torchbox.com>",
@@ -17,15 +17,15 @@ classifiers = [
     "License :: OSI Approved :: BSD License",
     "Operating System :: OS Independent",
     "Programming Language :: Python",
-    "Programming Language :: Python :: 3.7",
     "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Framework :: Django",
     "Framework :: Django :: 3.2",
-    "Framework :: Django :: 4.0",
     "Framework :: Django :: 4.1",
+    "Framework :: Django :: 4.2",
+    "Framework :: Django :: 5.0",
 ]
 packages = [
     { include = "pattern_library" },
@@ -43,15 +43,15 @@ exclude = [
 "Issues" = "https://github.com/torchbox/django-pattern-library/issues"
 
 [tool.poetry.dependencies]
-python = "^3.7"
-Django = ">=3.2,<4.2"
+python = "^3.8"
+Django = ">=3.2,<5.1"
 PyYAML = ">=5.1,<7.0"
-Markdown = "^3.1"
+Markdown = "^3.5.1"
 
 [tool.poetry.dev-dependencies]
 beautifulsoup4 = "^4.8"
-coverage = "^6.2"
-flake8 = "^3.7"
+coverage = "^7.4"
+flake8 = {version = "^7.0", python = ">=3.8.1,<4.0"}
 isort = "^5.10.1"
 mkdocs = "^1.1.2"
 mkdocs-material = "^5.5.14"
@@ -70,5 +70,5 @@ default_section = "THIRDPARTY"
 profile = "black"
 
 [build-system]
-requires = ["poetry>=1.1.12"]
-build-backend = "poetry.masonry.api"
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

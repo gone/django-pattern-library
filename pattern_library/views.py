@@ -4,6 +4,7 @@ from django.http import Http404, HttpResponse
 from django.template.loader import get_template
 from django.utils.decorators import method_decorator
 from django.utils.html import escape
+from django.utils.safestring import mark_safe
 from django.views.decorators.clickjacking import xframe_options_sameorigin
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic.base import TemplateView
@@ -15,10 +16,10 @@ from pattern_library.utils import (
     get_pattern_config_str,
     get_pattern_context,
     get_pattern_markdown,
+    get_renderer,
     get_sections,
     is_pattern,
     render_pattern,
-    get_renderer,
 )
 
 
@@ -99,7 +100,7 @@ class RenderPatternView(TemplateView):
 
         if pattern_is_fragment:
             context = self.get_context_data()
-            context["pattern_library_rendered_pattern"] = rendered_pattern
+            context["pattern_library_rendered_pattern"] = mark_safe(rendered_pattern)
             return self.render_to_response(context)
 
         return HttpResponse(rendered_pattern)
